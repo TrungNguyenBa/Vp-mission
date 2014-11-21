@@ -5,15 +5,18 @@ public class Destroy : MonoBehaviour {
 	public Transform player;
 	public float dis;
 	// Update is called once per frame
+
 	void Update () {
 		this.transform.position = new Vector3 (player.position.x-dis,
 		                                     this.transform.position.y,
 		                                     this.transform.position.z);
+	
 	}
 	void OnTriggerEnter2D(Collider2D col){
-		if ((col.gameObject.tag != "ground")&&(col.gameObject.tag != "Player")) {
-					Destroy (col.gameObject);
-				}
+
+		//if ((col.gameObject.tag != "ground")&&(col.gameObject.tag != "Player")) {
+			Debug.Log((this.collider2D.name).ToString());
+		//		}
 		}
 
 }
