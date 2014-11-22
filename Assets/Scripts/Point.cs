@@ -7,7 +7,7 @@ public class Point : MonoBehaviour {
 
 	public static float point;
 	public float rateOfChange;
-	public static float level;
+	public static int level;
 	private float changeLevel;
 	public float rateOCL;
 	// Update is called once per frame
