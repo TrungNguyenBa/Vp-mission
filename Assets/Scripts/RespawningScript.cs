@@ -21,6 +21,7 @@ public class RespawningScript : MonoBehaviour {
 						delay = 3f;
 				} else {
 						delay -= Time.deltaTime;
-				}
+				}	
 	}
 }
+	
