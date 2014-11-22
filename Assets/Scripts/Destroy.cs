@@ -14,9 +14,9 @@ public class Destroy : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D col){
 
-		//if ((col.gameObject.tag != "ground")&&(col.gameObject.tag != "Player")) {
-			Debug.Log((this.collider2D.name).ToString());
-		//		}
+		if ((col.gameObject.tag != "ground")&&(col.gameObject.tag != "Player")) {
+			Destroy(col.gameObject);
+				}
 		}
 
 }
