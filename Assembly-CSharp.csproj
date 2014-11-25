@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Girls.cs" />
      <Compile Include="Assets\Scripts\Individual.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\PlayerControlle.cs" />
      <Compile Include="Assets\Scripts\Point.cs" />
      <Compile Include="Assets\Scripts\RespawningScript.cs" />
      <Compile Include="Assets\Scripts\SlideRight.cs" />
