@@ -44,8 +44,12 @@ public class PlayerControlle : MonoBehaviour {
 												}
 												else {
 														istap=true;
-												}
-												Debug.Log (direction.x.ToString());
+														Debug.Log("Tap");
+														Player.isStraight = true;
+														Player.isLeft = false;
+														Player.isRight = false;
+																				}
+												//Debug.Log (direction.x.ToString());
 												break;
 												
 										}

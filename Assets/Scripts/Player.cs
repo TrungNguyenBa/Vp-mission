@@ -20,6 +20,6 @@ public class Player : MonoBehaviour {
 				Vector3 speed = Vector3.right * velocity;
 				speed *= Time.deltaTime;
 				this.transform.Translate (speed);
-				
+
 		}
 }

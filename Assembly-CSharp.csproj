@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\SlideRight.cs" />
      <Compile Include="Assets\Scripts\Slideleft.cs" />
      <Compile Include="Assets\Scripts\Straight.cs" />
+     <Compile Include="Assets\Scripts\ThrowingStuff.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,7 +4,8 @@ using System.Collections;
 public class RespawningScript : MonoBehaviour {
 	public GameObject girls; 
 	private float delay;
-	public GameObject player;
+	public GameObject pc;
+	public GameObject throwing;
 	// Use this for initialization
 	private int times;
 	void Start () {
@@ -14,9 +15,11 @@ public class RespawningScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector3 dis = new Vector3 (3.919564f*times, girls.transform.position.y-player.transform.position.y, 0);
+		Vector3 dis = new Vector3 (12*times, 0, 0);
+		//Vector3 dis1 = new Vector3 (5.931374f*times, 0, 0);
 		if (delay <= 0) {
-						Instantiate (girls, player.transform.position + dis, Quaternion.identity);
+						Instantiate (girls,girls.transform.position+dis , Quaternion.identity);
+						Instantiate (throwing,throwing.transform.position+dis , Quaternion.identity);
 						times++;
 						delay = 3f;
 				} else {

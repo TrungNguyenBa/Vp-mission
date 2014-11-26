@@ -18,5 +18,6 @@ public class Slideleft : MonoBehaviour  {
 			this.renderer.enabled=false;
 			this.collider2D.enabled=false;
 		}
+
 	}
 }
