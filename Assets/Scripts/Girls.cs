@@ -2,64 +2,27 @@
 using System.Collections;
 
 public class Girls : MonoBehaviour {
-	public static bool [] girl1={false,true,false,true,false,false,false,false};
-	// Use this for initialization
-	static public bool shoot=false;
-	static public float delay=0.4f;
-	void Start () {
-		
 
+	// Use this for initialization
+	private int enable;
+	float delay=0f;
+//	public bool shootable;
+	void Start () {
+		enable = ControllGirl.enable;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		/*	*/
-		updategirl ();
-		if (shoot) {
-			if (delay > 0) {
-				delay -= Time.deltaTime;
-			} else {
-				delay = 0.4f;
-				shoot = false;
-			}
-		}
+		int gs = (int) Random.Range (0f, enable + 0.9999f);
+		//Debug.Log (""+gs.ToString());
+		if (delay <= 0) {
+			this.transform.GetChild (gs).gameObject.SendMessage ("Throws");
+			delay=0.5f;	
+			}else 
+						delay -= Time.deltaTime;
 	}
-	void updategirl(){
-		switch (Point.level) {
-		case 0:
-		{
-			break;
-		}
-		case 1:
-		{
-			girl1[2] = true;
-			break;
-		}
-		case 2:
-		{
-			girl1[1] = true;
-			break;
-		}
-		case 3:
-		{
-			girl1[3] = true;
-			break;
-		}
-		case 4:
-		{
-			girl1[4]= true;
-			girl1[7]=true;
-			break;
-		}
-		case 5:
-		{
-			girl1[5]=true;
-			girl1[6]=true;
-			break;
-		}
-		default:
-			break;
-			
-		}
-	}
+
+
+
 }
