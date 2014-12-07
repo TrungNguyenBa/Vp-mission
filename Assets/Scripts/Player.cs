@@ -9,19 +9,20 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	private Vector3 startpos;
 	private Vector3 direction;
-	//private float max;
+	private float max;
 	void Start () {
 		isStraight = true;
 		isLeft = false;
 		isRight = false;
-	//	max = this.transform.position.x + 3 * 400 * Time.deltaTime;
+		max = this.transform.position.x + 3 * 400 * Time.deltaTime;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 				Vector3 speed = Vector3.right * velocity*Time.deltaTime;
 				//Debug.Log (speed.x.ToString ());
-						this.transform.Translate (speed);
+						
+					this.transform.Translate (speed);
 					
 		}
 }

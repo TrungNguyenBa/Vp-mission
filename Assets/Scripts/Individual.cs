@@ -39,6 +39,7 @@ public class Individual : MonoBehaviour {
 	void Throws(){
 		bool t = isShootable ();
 		if (t){
+						re.SendMessage("setindex",this.typeIndex);
 						re.SendMessage ("makeThing", this.transform);
 						//ava=false;
 				}

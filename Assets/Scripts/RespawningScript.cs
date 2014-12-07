@@ -8,7 +8,8 @@ public class RespawningScript : MonoBehaviour {
 	//public GameObject throwing;
 	// Use this for initialization
 	private int times;
-	public GameObject thing;
+	int index;
+	public GameObject [] things;
 	void Start () {
 		delay = 1f;
 		times = 1;
@@ -25,8 +26,11 @@ public class RespawningScript : MonoBehaviour {
 						delay -= Time.deltaTime;
 				}	
 	}
+	void setindex( int i){
+		index = i;
+	}
 	void makeThing(Transform pos){
-		Instantiate (thing, pos.position, Quaternion.identity);
+		Instantiate (things[index], pos.position, Quaternion.identity);
 		//GameObject [] things = GameObject.FindGameObjectsWithTag ("throwing");
 	}
 }

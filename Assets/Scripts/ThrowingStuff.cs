@@ -21,11 +21,12 @@ public class ThrowingStuff : MonoBehaviour {
 								if (delay > 0) {
 										delay -= Time.fixedDeltaTime;
 								} else {
-										delay = 1.2f - Point.level * 0.065f;
+										delay = 1.3f - Point.level * 0.065f;
 										if (delay < 0.4)
 												delay = 0.4F;
 										shoot = false;
 								}
+								//Debug.Log(delay.ToString());
 						} else {
 								int random = (int)Random.Range (0, things.Length -0.0001f);
 								things [random].SendMessage ("isthrowing");
