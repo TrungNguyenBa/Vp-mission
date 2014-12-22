@@ -2,9 +2,11 @@
 using System.Collections;
 
 public class RespawningScript : MonoBehaviour {
-	public GameObject girls; 
+	public GameObject girls;
+	public GameObject kss;
+	public GameObject Chem;
 	private float delay;
-//	public GameObject pc;
+	public GameObject pl;
 	//public GameObject throwing;
 	// Use this for initialization
 	private int times;
@@ -21,7 +23,8 @@ public class RespawningScript : MonoBehaviour {
 		if (delay <= 0) {
 						Instantiate (girls,girls.transform.position+dis , Quaternion.identity);
 						times++;
-						delay = 3f;
+						delay=3f;					
+						
 				} else {
 						delay -= Time.deltaTime;
 				}	
@@ -29,9 +32,13 @@ public class RespawningScript : MonoBehaviour {
 	void setindex( int i){
 		index = i;
 	}
-	void makeThing(Transform pos){
+	 void makeThing(Transform pos){
 		Instantiate (things[index], pos.position, Quaternion.identity);
-		//GameObject [] things = GameObject.FindGameObjectsWithTag ("throwing");
+	}
+	void createChem() {
+		Instantiate (Chem,pl.transform.position+ Vector3.right*10+Vector3.up*2.1f,Quaternion.identity);
+	}
+	void createKss(){
+		Instantiate (kss, pl.transform.position + Vector3.right * 10 + Vector3.up * 3.1f, Quaternion.identity);
 	}
 }
-	

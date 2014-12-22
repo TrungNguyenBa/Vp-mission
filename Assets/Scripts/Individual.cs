@@ -4,7 +4,7 @@ using System.Collections;
 public class Individual : MonoBehaviour {
 
 	public int index;
-	public int typeIndex;
+	int typeIndex;
 //	private bool isEnabled;
 	private Transform parent;
 	GameObject re;
@@ -19,6 +19,7 @@ public class Individual : MonoBehaviour {
 		//if (isEnabled) {
 		//	renderer.enabled = true;
 			re = GameObject.FindGameObjectWithTag("Respawn");					
+			typeIndex = Random.Range (0, 3);
 		//	Debug.Log(re.ToString());
 	//	} else {
 	//		renderer.enabled=false;
