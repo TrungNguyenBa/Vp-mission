@@ -14,7 +14,7 @@ public class Destroys : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D col){
 
-		if ((col.gameObject.tag != "Destroy")&&(col.gameObject.tag != "Player")) {
+		if ((col.gameObject.tag != "Destroy")&&(col.gameObject.tag != "Player")&&(col.gameObject.tag!="Trigger")) {
 		
 			Destroy(col.gameObject);
 				}

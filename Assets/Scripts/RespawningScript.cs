@@ -36,7 +36,8 @@ public class RespawningScript : MonoBehaviour {
 		Instantiate (things[index], pos.position, Quaternion.identity);
 	}
 	void createChem() {
-		Instantiate (Chem,pl.transform.position+ Vector3.right*10+Vector3.up*2.1f,Quaternion.identity);
+		Instantiate (Chem,pl.transform.position+ Vector3.right*7+Vector3.up*2.1f,Quaternion.identity);
+		ThrowingStuff.shoot = true;
 	}
 	void createKss(){
 		Instantiate (kss, pl.transform.position + Vector3.right * 10 + Vector3.up * 3.1f, Quaternion.identity);

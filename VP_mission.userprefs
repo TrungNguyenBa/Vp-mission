@@ -1,15 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerControlle.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Girls.cs">
     <Files>
-      <File FileName="Assets\Scripts\WildGirl.cs" Line="33" Column="7" />
-      <File FileName="Assets\Scripts\Throwing.cs" Line="82" Column="3" />
-      <File FileName="Assets\Scripts\RespawningScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Girls.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Individual.cs" Line="60" Column="1" />
-      <File FileName="Assets\Scripts\Equation.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ThrowingStuff.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerControlle.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CameraFollower.cs" Line="14" Column="3" />
+      <File FileName="Assets\Scripts\Poison.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Girls.cs" Line="22" Column="35" />
+      <File FileName="Assets\Scripts\Individual.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -13,15 +13,24 @@ public class Girls : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		/*	*/
-		int gs = (int) Random.Range (0f, enable + 0.9999f);
-		//Debug.Log (""+gs.ToString());
-		if (delay <= 0) {
-			this.transform.GetChild (gs).gameObject.SendMessage ("Throws");
-			delay=0.5f;	
-			}else 
-						delay -= Time.deltaTime;
-	}
+				/*	*/
+				enable = this.transform.childCount;
+				int gs = (int)Random.Range (0f, enable);
+				//Debug.Log (""+gs.ToString());
+				if (delay <= 0) {
+						Transform t = this.transform.GetChild (gs);
+						if ((t.gameObject != null)&&(t.gameObject.tag!="Wild")) {
+								t.gameObject.SendMessage ("Throws");
+								delay = 0.5f;	
+						} 
+				}
+				else {
+								delay -= Time.deltaTime;
+						
+			
+			}
+				
+		}
 
 
 

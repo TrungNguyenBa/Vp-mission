@@ -11,19 +11,13 @@ public class Individual : MonoBehaviour {
 	bool ava = true;
 	private float delay=1f;
 	void Awake(){
-		//isEnabled = ControllGirl.girl1[index];
+
 	}
 	// Use this for initialization
 	void Start () {
-		//Debug.Log (.girl1 [index].ToString ());
-		//if (isEnabled) {
-		//	renderer.enabled = true;
 			re = GameObject.FindGameObjectWithTag("Respawn");					
-			typeIndex = Random.Range (0, 3);
-		//	Debug.Log(re.ToString());
-	//	} else {
-	//		renderer.enabled=false;
-	//	}
+		typeIndex = Random.Range (0, 3);
+
 	}
 	void Update() {
 		if (ava == false) {
@@ -51,7 +45,7 @@ public class Individual : MonoBehaviour {
 	bool isShootable(){
 		GameObject p = GameObject.FindGameObjectWithTag ("MP"); 
 		float t = this.transform.position.x - p.transform.position.x;
-		if ((t < 19) && (t > -13)&&ava) {
+		if ((t < 10) && (t > -5)&&ava) {
 			return true;
 		} else {
 			return false;

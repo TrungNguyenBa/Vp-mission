@@ -16,7 +16,7 @@ public class Chemistry : MonoBehaviour {
 		if (!throwing) {
 			GameObject p = GameObject.FindGameObjectWithTag ("MP");
 			float dis = this.transform.position.x - p.transform.position.x;
-			if (dis<7) {
+			if (dis<5) {
 				throwing=true;
 				this.transform.GetChild(0).SendMessage("isthrowing");
 			}

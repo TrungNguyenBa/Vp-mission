@@ -12,6 +12,7 @@ public class Poison : MonoBehaviour {
 		//ThrowingStuff.delay = 3f;
 		this.renderer.enabled = false;
 		this.collider2D.enabled = false;
+		y_velo = 0;
 		throwing = false;
 
 	}
@@ -34,6 +35,15 @@ public class Poison : MonoBehaviour {
 		                            3f,
 		                            p.transform.position,
 		                            3);
+		//Debug.Log (ThrowingStuff.shoot.ToString());
+	}
+	void OnTriggerEnter2D(Collider2D col) {
+		if (col.tag == "Player") {
+				Destroy (this.gameObject);
+		} else if ((col.tag == "Trigger")&&(y_velo<0)) {
+			ThrowingStuff.shoot=false;
+			Debug.Log("here");
+		}
 	}
 
 }

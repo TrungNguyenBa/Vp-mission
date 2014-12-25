@@ -36,7 +36,7 @@ public class WildGirl : MonoBehaviour {
 						float ran = Random.Range (0, 4);
 						if (((k < 13) && (k > 10)&&(ran>2))||(k<5)) {
 										this.jump = true;
-										ThrowingStuff.Delays (3);
+										ThrowingStuff.shoot=true;
 										ThrowingStuff.isWild=true;
 										x_velo = Equation.equations (this.transform.position.x,
 					                             this.transform.position.y,
@@ -49,9 +49,17 @@ public class WildGirl : MonoBehaviour {
 			
 		}
 	void OnTriggerEnter2D(Collider2D col) {
-		if (col.tag == "Player") {
-			//Debug.Log("hit");
-			Destroy(this.gameObject);
+				if (col.tag == "Trigger") {
+						ThrowingStuff.shoot = false;			
+						Debug.Log("hit");
+						ThrowingStuff.isWild = false;
+			
+		
+				} else if (col.tag == "Player") {
+		
+						Destroy (this.gameObject);
+
+				}
 		}
-	}
 }
+

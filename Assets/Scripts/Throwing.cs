@@ -7,19 +7,13 @@ public class Throwing : MonoBehaviour {
 	Vector3 p;
 	float y;
 	float x;
-	public int index;
+	int index=0;
 	float y_velo;
 	float x_velo;
 	Vector3 t = new Vector3 (0,0,0);
+	float timing=0f;
 	void Awake() {
-		if (index == 1) {
-						y_velo = 12.0f;
-				} else if (index == 0) {
-						y_velo = -9.375f;
-				} else if (index == 2) {
-						y_velo=-9.375f;		
-		}
-				
+		y_velo = -7.5f-Point.level*0.4f;
 
 	}
 	void Start () {
@@ -33,15 +27,9 @@ public class Throwing : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate(){
 		if (shooting) {
-
-						if (index == 1) {
-								y_velo -= 8.2f * Time.fixedDeltaTime;
-								t = (Vector3.right*x_velo+Vector3.up*y_velo)*Time.fixedDeltaTime;
-						} else {
-								
-								t = (Vector3.right*x_velo+Vector3.up*y_velo)*Time.fixedDeltaTime;
-						}
-						this.transform.Translate (t);
+					timing+=Time.fixedDeltaTime;
+					t = (Vector3.right*x_velo+Vector3.up*y_velo)*Time.fixedDeltaTime;
+					this.transform.Translate (t);
 				}
 
 	}
@@ -51,8 +39,8 @@ public class Throwing : MonoBehaviour {
 						this.renderer.enabled = true;	
 						GameObject pl = GameObject.FindGameObjectWithTag ("MP");
 						p = pl.transform.position;
-						x_velo = Equation.equations (x, y, y_velo, p, index) + 2.83f;
-						ThrowingStuff.Delays(index);
+						x_velo = Equation.equations (x, y, y_velo, p, index) + 3f;
+						ThrowingStuff.shoot=true;
 				}
 
 
@@ -60,9 +48,13 @@ public class Throwing : MonoBehaviour {
 
 
 	void OnTriggerEnter2D(Collider2D col) {
-		if (col.tag == "Player") {
-			//Debug.Log("hit");
-			Destroy(this.gameObject);
-		}
+		if ((col.tag == "Player")||(col.tag == "ground")) {
+					//	Debug.Log ("Throwing " + timing.ToString ());
+						ThrowingStuff.shoot = false;
+						Destroy (this.gameObject);
+				}
+
+	 
 	}
 }
+	

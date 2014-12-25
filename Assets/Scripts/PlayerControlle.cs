@@ -33,13 +33,13 @@ public class PlayerControlle : MonoBehaviour {
 												change = true;
 												;
 												if (direction.x > 5f) {
-														delay=0.4f;
+														delay=0.25f;
 														Player.isStraight = false;
 														Player.isLeft = false;
 														Player.isRight = true;
 
 												} else if (direction.x < -5f) {
-														delay=0.4f;
+														delay=0.25f;
 														Player.isStraight = false;
 														Player.isLeft = true;
 														Player.isRight = false;
@@ -63,7 +63,7 @@ public class PlayerControlle : MonoBehaviour {
 										Player.isStraight = true;
 										Player.isLeft = false;
 										Player.isRight = false;
-										delay = 0.4f;
+										delay = 0.25f;
 										change=false;
 										istap=false;
 								} else {
