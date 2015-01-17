@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 	public static bool isStraight;
 	public static bool isLeft;
 	public static bool isRight;
+	public static bool isBlocking;
 	// Use this for initialization
 	private Vector3 startpos;
 	private Vector3 direction;
@@ -14,6 +15,7 @@ public class Player : MonoBehaviour {
 		isStraight = true;
 		isLeft = false;
 		isRight = false;
+		isBlocking = false;
 		max = this.transform.position.x + 3 * 400 * Time.deltaTime;
 	}
 	

@@ -16,8 +16,7 @@ public class Girls : MonoBehaviour {
 				/*	*/
 				enable = this.transform.childCount;
 				int gs = (int)Random.Range (0f, enable);
-				//Debug.Log (""+gs.ToString());
-				if (delay <= 0) {
+				if ((delay <= 0)&&(enable>0)) {
 						Transform t = this.transform.GetChild (gs);
 						if ((t.gameObject != null)&&(t.gameObject.tag!="Wild")) {
 								t.gameObject.SendMessage ("Throws");

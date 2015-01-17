@@ -10,11 +10,7 @@ public class Point : MonoBehaviour {
 	public static int level;
 	private float changeLevel;
 	public float rateOCL;
-
 	// Update is called once per frame
-	void Awake(){
-				
-		}
 	void Start(){
 		point = 0;
 		changeLevel=100;
@@ -32,7 +28,9 @@ public class Point : MonoBehaviour {
 				}
 
 	}
-
+	public static void GAMEOVER() {
+		Time.timeScale = 0;
+	}
 	void OnGUI(){
 		int t = (int)point;
 		Rect pointbox = new Rect (Screen.width/2-40f, 0f, 80f, 20f);

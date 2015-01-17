@@ -4,61 +4,75 @@ using System.Collections;
 public class WildGirl : MonoBehaviour {
 
 	// Use this for initialization
-	bool enable;
+	float Rand;
 	bool jump;
 	float y_velo;
 	float x_velo;
-
-	void Awake(){
-		enable = (Point.level > 1) && (Random.Range (1f, 3f) > 2);
-	}
+	int n =0;
+	float bar;
+	bool touch_bag = false;
+	public Sprite[] sp; 
 	void Start () {
+		Rand = Random.Range (0f, 1f);
 		y_velo = 3f;
-		if (!enable) {
-			this.renderer.enabled = false;
-			this.collider2D.enabled = false;
-		}
 		jump = false;
+		if (Point.level < 10) {
+						bar = -1.4f + Point.level*0.03f;
+				}
 	}
 	// Update is called once per frame
 	void FixedUpdate () {
-			if (jump) {
-					Vector3 t = (Vector3.right*x_velo+Vector3.up*y_velo)*Time.fixedDeltaTime;
-					this.transform.Translate(t);
-					y_velo -= 8.2f*Time.fixedDeltaTime;ThrowingStuff.shoot=true;
-
+		if ((this.transform.position.y <=bar)&&(n==0)) {
+			n++;
+			if (ThrowingStuff.during==false) {
+				ThrowingStuff.shoot = false;
+			}
+			
 		}
+		checkforjump ();
+		if (jump) {
+
+						Vector3 t = (Vector3.right * x_velo + Vector3.up * y_velo) * Time.fixedDeltaTime;
+						this.transform.Translate (t);
+						y_velo -= 10.2f * Time.fixedDeltaTime;
+						
+
+				} else {
+						Rand-=Time.fixedDeltaTime;
+				}
 	}
 	void checkforjump(){
-		if ((enable)&&(!jump)) {
+		if ((!jump)&&(Rand<=0)) {
+						int t = 0 ;
 						GameObject p = GameObject.FindGameObjectWithTag ("MP");
 						float k = this.transform.position.x - p.transform.position.x;
 						float ran = Random.Range (0, 4);
-						if (((k < 13) && (k > 10)&&(ran>2))||(k<5)) {
-										this.jump = true;
-										ThrowingStuff.shoot=true;
-										ThrowingStuff.isWild=true;
-										x_velo = Equation.equations (this.transform.position.x,
+						this.jump = true;
+						ThrowingStuff.shoot=true;
+						x_velo = Equation.equations (this.transform.position.x,
 					                             this.transform.position.y,
 					                             y_velo,
 					                             p.transform.position,
-					                             1) + 2.8f;
-								
+					                             4) + 2.8f;
+						if (k <-3.5) {
+							t = 2;	
+						}
+						else if (k >4 ) {
+							t = 1;
+						}
+			this.GetComponent<SpriteRenderer>().sprite = sp[t];
 						}
 				}
-			
-		}
+				
+		
 	void OnTriggerEnter2D(Collider2D col) {
-				if (col.tag == "Trigger") {
-						ThrowingStuff.shoot = false;			
-						Debug.Log("hit");
-						ThrowingStuff.isWild = false;
-			
-		
-				} else if (col.tag == "Player") {
-		
-						Destroy (this.gameObject);
-
+		if ((col.tag=="Player")&&(!touch_bag)) {
+			Destroy(this.gameObject);
+			Point.GAMEOVER();
+		}
+		if (col.tag == "Bag") {
+			touch_bag=true;
+			this.renderer.enabled=false;
 				}
 		}
 }

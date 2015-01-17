@@ -4,9 +4,7 @@ using System.Collections;
 public class Straight : MonoBehaviour  {
 
 	// Use this for initialization
-	void Start () {
-
-	}
+	public Sprite [] sp;
 	
 	// Update is called once per frame
 	void Update () {

@@ -15,7 +15,7 @@ public class Equation : MonoBehaviour {
 
 				case 1:
 						{
-								float a =(8.2f+Point.level*0.4f) ;			
+								float a =(8.2f) ;			
 								float k = (avelo*avelo) + 2f *a * (y - p.y);
 								float time = ((-1*avelo) - Mathf.Sqrt (k)) / (-a);
 			 					velo = (p.x-x+0.3f)/ time;
@@ -29,10 +29,17 @@ public class Equation : MonoBehaviour {
 				case 3: {
 								float dis = x-p.x;
 								float time = dis/avelo;
-								velo = ((p.y-y)+(4.2f+Point.level*0.3f)*time*time)/time;
+								velo = ((p.y-y)+(4.2f*time*time))/time;
 								break;
 						}
-				}
+				case 4: {
+						float a =(10.2f) ;			
+						float k = (avelo*avelo) + 2f *a * (y - p.y);
+						float time = ((-1*avelo) - Mathf.Sqrt (k)) / (-a);
+						velo = (p.x-x+0.3f)/ time;
+						break;
+		}
+		}
 		return velo;
 	}
 		

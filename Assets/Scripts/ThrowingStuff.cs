@@ -4,48 +4,47 @@ using System.Collections;
 public class ThrowingStuff : MonoBehaviour {
 
 	static public bool shoot;
-	static public bool isWild;
 	float delay =0f;
 	float making;
+	float r;
+	static public bool during=false;
 	private GameObject[] things;
 	private GameObject[] Wildgirls;
 	// Use this for initialization
-	// Update is called once per frame
 	void Start(){
-		isWild=false;
 		shoot = false;
-		making = 4f;
+		making = Random.Range(4f,8f);
+		r = Random.Range (0f, 4f);
 	}
 	void Update () {
 		things = GameObject.FindGameObjectsWithTag("throwing");
 		Wildgirls = GameObject.FindGameObjectsWithTag ("Wild");
-		if (things != null) {
-						making -= Time.deltaTime ;
-						if (delay <1){
+		making -= Time.deltaTime ;
+		r -= Time.deltaTime;
+		if (things.Length>0) {
+						if (delay <2.3){
 							delay+=Time.deltaTime;
 						}
-						//Debug.Log(shoot.ToString());
-						
 						if ((!shoot)&&(delay>1)) {
-							bool rand = (Random.Range(0,5)>=3)&&(Point.level>1)&&(making<0);
-							Debug.Log(making.ToString());
-							
+							bool rand = (Point.level>1)&&(making<0)&&(!during);
+							GameObject re = GameObject.FindGameObjectWithTag("Respawn");
 							if (rand) {
-									GameObject re = GameObject.FindGameObjectWithTag("Respawn");
-									re.SendMessage("createChem");
-									making =4f;
-									
-							}
-							else {
-									if (Wildgirls!=null) {
-										for (int i=0;i<Wildgirls.Length;i++) {
-											Wildgirls[i].SendMessage("checkforjump");
-											if (isWild) {
-												break;
-											}	
-										}
+									bool ra = (Random.Range(0,4)>2);
+									if (!ra) {
+										re.SendMessage("createChem");
 									}
-									if (isWild==false) {
+									else {
+										re.SendMessage("createKss");
+									}
+									making =Random.Range(4f,8f);
+							}
+								
+							else {
+									if ((r<0)&&(Point.level>1)&&(!during)) {
+										re.SendMessage("createWild");
+										r = Random.Range (10f, 25f);
+									}
+									else {
 										int random = (int)Random.Range (0, things.Length);
 										things [random].SendMessage ("isthrowing");
 									}

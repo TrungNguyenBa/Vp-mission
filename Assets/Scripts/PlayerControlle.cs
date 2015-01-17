@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class PlayerControlle : MonoBehaviour {
@@ -7,6 +7,7 @@ public class PlayerControlle : MonoBehaviour {
 	float delay;
 	bool change;
 	bool istap;
+
 	// Use this for initialization
 	void Start () {
 		delay = 1f;
@@ -32,24 +33,28 @@ public class PlayerControlle : MonoBehaviour {
 												direction = t.position - startpos;
 												change = true;
 												;
-												if (direction.x > 5f) {
-														delay=0.25f;
+												if (direction.x > 7f) {
+														delay=0.57f;
 														Player.isStraight = false;
 														Player.isLeft = false;
 														Player.isRight = true;
+														Player.isBlocking = false;
 
-												} else if (direction.x < -5f) {
-														delay=0.25f;
+												} else if (direction.x < -7f){
+														delay=0.57f;
 														Player.isStraight = false;
 														Player.isLeft = true;
 														Player.isRight = false;
+														Player.isBlocking = false;
 												}
 												else {
 														istap=true;
-														Debug.Log("Tap");
-														Player.isStraight = true;
+														//Debug.Log("Tap");
+														delay=0.57f;
+														Player.isBlocking = true;
 														Player.isLeft = false;
 														Player.isRight = false;
+														Player.isStraight=false;
 																				}
 												//Debug.Log (direction.x.ToString());
 												break;
@@ -63,7 +68,8 @@ public class PlayerControlle : MonoBehaviour {
 										Player.isStraight = true;
 										Player.isLeft = false;
 										Player.isRight = false;
-										delay = 0.25f;
+										Player.isBlocking = false;
+										delay = 0.57f;
 										change=false;
 										istap=false;
 								} else {
